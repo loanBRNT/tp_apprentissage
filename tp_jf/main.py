@@ -58,8 +58,8 @@ def afd(X_train, y_train, X_test, y_test):
     CT, CA, CE = CalculerMatricesCovariance(X_train_centreReduit, y_train, centreGraviteReduit_train)
     CACE = np.dot(np.linalg.inv(CA), CE)
     l, u = np.linalg.eig(CACE)
-    # choix des lambda
-    #M = np.array(u[:, 0:10])
+    # choix des vectP, a faire varier pour tester
+    M = np.array(u[:, 0:10])
 
     # nouvelle donne
     return np.dot(X_train_centreReduit, M), np.dot(X_test_centreReduit, M)
@@ -79,7 +79,8 @@ def acp(X_train, y_train, X_test, y_test):
     CT, CA, CE = CalculerMatricesCovariance(X_train_centreReduit, y_train, centreGraviteReduit_train)
     L, u = np.linalg.eig(CT)
 
-    #M = np.array(u[:, 2:6])
+    # choix des vectP, a faire varier pour tester
+    M = np.array(u[:, 0:10])
 
     return np.dot(X_train_centreReduit, M), np.dot(X_test_centreReduit, M)
 
